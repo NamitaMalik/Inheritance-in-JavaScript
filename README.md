@@ -17,3 +17,38 @@ Each object in **JavaScript** has internal link to another object, through a pro
 When a property requested in one object is not found in that **object**, then **prototype chaining** is used to look into the next **object** in the chain and so on.....until the end of chain is reached. This behavior of **Prototype Chaining** help us to add **inheritance** in **JavaScript**.
 
 Let's experience some inheritance using the given sample classes:
+
+**LivingThing Class**
+
+```JavaScript
+function LivingThing(sleep){
+this.sleep = sleep;
+}
+```
+**Bird Class**
+
+```JavaScript
+function Bird(eat){
+this.eat = eat;
+}
+```
+**Peacock Class**
+```JavaScript
+function Peacock(name){
+this.name = name;
+}
+```
+Now, we know that Peacock is a bird and bird is a living thing. So all we need to show here is their relationship i.e. we need to implement the **inheritance**. Here we go:
+
+```JavaScript
+Peacock.prototype = new Bird();
+Peacock.prototype.constructor = Peacock;
+```
+In the above two lines of code we have added the passed the instance of Bird to the prototype of Peacock. In the constructor of Peacock we are again passing Peacock.
+
+Now, let's link Bird to the LivingThing class. This can be done in the following way:
+
+```JavaScript
+Bird.prototype = new LivingThing();
+Bird.prototype.constructor = Bird;
+```
