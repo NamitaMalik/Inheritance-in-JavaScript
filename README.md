@@ -44,7 +44,7 @@ Now, we know that Peacock is a bird and bird is a living thing. So all we need t
 Peacock.prototype = new Bird();
 Peacock.prototype.constructor = Peacock;
 ```
-In the above two lines of code we have added the passed the instance of Bird to the prototype of Peacock. In the constructor of Peacock we are again passing Peacock.
+In the above two lines of code we have added the passed the instance of Bird to the prototype of Peacock, therefore we have linked Peacock to Bird. Second line though does not makes any difference to the inheritance but it is in important in the sense that it makes the constructor property of prototype refer to the correct class/function.
 
 Now, let's link Bird to the LivingThing class. This can be done in the following way:
 
@@ -52,3 +52,9 @@ Now, let's link Bird to the LivingThing class. This can be done in the following
 Bird.prototype = new LivingThing();
 Bird.prototype.constructor = Bird;
 ```
+
+In the above snippet we have linked Bird to LivingThing. This type of chaining can go on and on. The above hierarchy would be something like:
+
+LivingThing --> Bird --> Peacock
+
+We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **prototype** to our rescue!
