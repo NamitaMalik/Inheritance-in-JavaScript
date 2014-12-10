@@ -44,7 +44,7 @@ Now, we know that Peacock is a bird and bird is a living thing. So all we need t
 Peacock.prototype = new Bird();
 Peacock.prototype.constructor = Peacock;
 ```
-In the above two lines of code we have added the passed the instance of Bird to the prototype of Peacock, therefore we have linked Peacock to Bird. Second line though does not makes any difference to the inheritance but it is in important in the sense that it makes the constructor property of prototype refer to the correct class/function.
+In the above two lines of code we have passed the instance of Bird to the prototype of Peacock, therefore we have linked Peacock to Bird. Second line though does not makes any difference to the inheritance but it is in important in the sense that it makes the constructor property of prototype refer to the correct class/function.
 
 Now, let's link Bird to the LivingThing class. This can be done in the following way:
 
