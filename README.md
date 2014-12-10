@@ -53,7 +53,7 @@ Bird.prototype = new LivingThing();
 Bird.prototype.constructor = Bird;
 ```
 
-In the above snippet we have linked Bird to LivingThing. This type of chaining can go on and on. The above hierarchy would be something like:
+In the above snippet we have linked Bird to LivingThing. This type of chaining can go on and on. The above set of snippets would lead us to hierarchy given below:
 
 LivingThing --> Bird --> Peacock
 
