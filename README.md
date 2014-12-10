@@ -57,4 +57,4 @@ In the above snippet we have linked Bird to LivingThing. This type of chaining c
 
 LivingThing --> Bird --> Peacock
 
-We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **prototype** to our rescue!
+We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **prototype** to our rescue!!
