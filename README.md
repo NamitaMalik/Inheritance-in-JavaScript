@@ -81,6 +81,8 @@ peacock.fly(); // I am bird! I can fly!!
 peacock.move(); // I am living thing! I can move!!
 ```
 
-You can see, we can call the parent methods/function on chile object/peacock.
+You can see, we can call the parent methods/function on child object/peacock. Let's see the above snippet in more detail:
+
+We called dance function on peacock object, since dance function belonged to Peacock, so it could be easily accessed. fly() **function** belongs to Bird, but could still be called on Peacock object, because fly() **function** was first searched in Peacock object. On not finding fly() in Peacock, **prototype** was looked into to access the next object in the chain, which is Bird and hence we were able to call fly() function. Similar thing happened when move() function was called, first Peacock object was searched, then **prototype** of Peacock in order to know the next object in the chain. Bird object was then looked into, on not finding move() **function** in Bird object, reference of **Object** in prototype was looked which led the search to LivingThing object, which actually had the move() **function**.
 
 We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **[prototype](http://codechutney.in/blog/javascript/prototype-in-javascript/)** to our rescue!
