@@ -22,20 +22,20 @@ Let's experience some inheritance using the given sample classes:
 
 ```JavaScript
 function LivingThing(sleep){
-this.sleep = sleep;
+    this.sleep = sleep;
 }
 ```
 **Bird Class**
 
 ```JavaScript
-function Bird(eat){
-this.eat = eat;
+function Bird(eat) {
+    this.eat = eat;
 }
 ```
 **Peacock Class**
 ```JavaScript
 function Peacock(name){
-this.name = name;
+    this.name = name;
 }
 ```
 Now, we know that Peacock is a bird and bird is a living thing. So all we need to show here is their relationship i.e. we need to implement the **inheritance**. Here we go:
@@ -55,6 +55,6 @@ Bird.prototype.constructor = Bird;
 
 In the above snippet we have linked Bird to LivingThing. This type of chaining can go on and on. The above set of snippets would lead us to hierarchy given below:
 
-LivingThing --> Bird --> Peacock
+> LivingThing --> Bird --> Peacock
 
 We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **prototype** to our rescue!
