@@ -3,6 +3,7 @@
 **Inheritance** is a very important **OOPS** concept, by virtue of which children **classes** **inherit** from their parent **classes**. But now, question is how to implement **inheritance** in **JavaScript**?
 
 We all know how to make **class** in **JavaScript**? **Class** in **JavaScript** is nothing but a **[constructor function](http://codechutney.in/blog/javascript/constructor-pattern/)**. Here is a sample class:
+
 ```JavaScript
 function Peacock() {
     this.dance = function() {
@@ -22,6 +23,7 @@ When a property requested in one object is not found in that **object**, then **
 Let's experience some inheritance using the given sample classes:
 
 **LivingThing Class**
+
 ```JavaScript
 function LivingThing() {
     this.move = function() {
@@ -31,6 +33,7 @@ function LivingThing() {
 ```
 
 **Bird Class**
+
 ```JavaScript
 function Bird() {
     this.fly = function() {
@@ -40,6 +43,7 @@ function Bird() {
 ```
 
 **Peacock Class**
+
 ```JavaScript
 function Peacock() {
     this.dance = function() {
