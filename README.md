@@ -17,7 +17,7 @@ So, what is **prototype chaining**?
 
 Each object in **JavaScript** has internal link to another object, through a property known as **[Prototype](http://codechutney.in/blog/javascript/prototype-in-javascript/)**. While moving through the chain of these **objects**, one would encounter 'null' in the **prototype** which would mean that Object **prototype** has reached.
 
-When a property requested in one object is not found in that **object**, then **prototype chaining** is used to look into the next **object** in the chain and so on.....until the end of chain is reached. This behavior of **Prototype Chaining** help us to add **inheritance** in **JavaScript**.
+When a property requested in one object is not found in that **object**, then **prototype chaining** is used to look into the next **object** in the chain and so on.....until the end of chain is reached. This behavior of **Prototype Chaining** helps us to add **inheritance** in **JavaScript**.
 
 Let's experience some inheritance using the given sample classes:
 
