@@ -3,12 +3,14 @@
 **Inheritance** is a very important **OOPS** concept, by virtue of which children **classes** **inherit** from their parent **classes**. But now, question is how to implement **inheritance** in **JavaScript**?
 
 We all know how to make **class** in **JavaScript**? **Class** in **JavaScript** is nothing but a **[constructor function](http://codechutney.in/blog/javascript/constructor-pattern/)**. Here is a sample class:
-
 ```JavaScript
-function Peacock(name){
-    this.name = name;
+function Peacock() {
+    this.dance = function() {
+      console.log("I am Peacock! I can dance");
+    };
 }
 ```
+
 In **JavaScript**, we do not have any **extend** keyword, the only way to implement **inheritance** is through **prototype chaining**.
 
 So, what is **prototype chaining**?
@@ -21,22 +23,28 @@ Let's experience some inheritance using the given sample classes:
 
 **LivingThing Class**
 ```JavaScript
-function LivingThing(sleep){
-    this.sleep = sleep;
+function LivingThing() {
+    this.move = function() {
+        console.log("I am living thing! I can move!!");
+    };
 }
 ```
 
 **Bird Class**
 ```JavaScript
-function Bird(eat) {
-    this.eat = eat;
+function Bird() {
+    this.fly = function() {
+        console.log("I am bird! I can fly!!");
+    };
 }
 ```
 
 **Peacock Class**
 ```JavaScript
-function Peacock(name){
-    this.name = name;
+function Peacock() {
+    this.dance = function() {
+      console.log("I am Peacock! I can dance");
+    };
 }
 ```
 
@@ -59,5 +67,16 @@ Peacock.prototype.constructor = Peacock;
 In the above snippet we have linked Peacock to Bird. This type of **chaining** can go on and on. The above set of snippets would lead us to hierarchy given below:
 
 > LivingThing --> Bird --> Peacock
+
+Lets try to create an object of Peacock **class**, and call dance, fly and move **methods/functions** on that object, and see what is happening??
+
+```JavaScript
+var peacock = new Peacock("A");
+peacock.dance(); // I am Peacock! I can dance
+peacock.fly(); // I am bird! I can fly!!
+peacock.move(); // I am living thing! I can move!!
+```
+
+You can see, we can call the parent methods/function on chile object/peacock.
 
 We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **[prototype](http://codechutney.in/blog/javascript/prototype-in-javascript/)** to our rescue!
