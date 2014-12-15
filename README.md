@@ -75,7 +75,7 @@ In the above snippet we have linked Peacock to Bird. This type of **chaining** c
 Lets try to create an object of Peacock **class**, and call dance, fly and move **methods/functions** on that object, and see what is happening??
 
 ```JavaScript
-var peacock = new Peacock("A");
+var peacock = new Peacock();
 peacock.dance(); // I am Peacock! I can dance
 peacock.fly(); // I am bird! I can fly!!
 peacock.move(); // I am living thing! I can move!!
@@ -83,6 +83,6 @@ peacock.move(); // I am living thing! I can move!!
 
 You can see, we can call the parent methods/function on child object/peacock. Let's see the above snippet in more detail:
 
-We called dance() on Peacock **object**, since dance() belonged to Peacock, so it could be easily accessed. fly() belonged to Bird, but it could still be called on Peacock reason being that fly() was first searched in Peacock, on not finding fly() in Peacock, **prototype** was looked into to access the next **object** in the chain, which is Bird and hence we were able to call fly(). Similar thing happened when move() was called, first Peacock object was searched, then hunt moved to the  **prototype** of Peacock in order to know the next object in the chain. Bird object was then looked into and on not finding move() there, reference of next **object** in **prototype** of Bird was looked which led the search to LivingThing **object**, which actually had the move(). This is how we made a hierarchy starting from LivingThing to Peacock!
+We called ```dance()``` on Peacock **object**, since ```dance()``` belonged to Peacock, so it could be easily accessed. ```fly()``` belonged to Bird, but it could still be called on Peacock reason being that ```fly()``` was first searched in Peacock, on not finding ```fly()``` in Peacock, **prototype** was looked into to access the next **object** in the chain, which is Bird and hence we were able to call ```fly()```. Similar thing happened when ```move()``` was called, first Peacock object was searched, then hunt moved to the  **prototype** of Peacock in order to know the next object in the chain. Bird object was then looked into and on not finding ```move()``` there, reference of next **object** in **prototype** of Bird was looked which led the search to LivingThing **object**, which actually had the ```move()```. This is how we made a hierarchy starting from LivingThing to Peacock!
 
 We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **[prototype](http://codechutney.in/blog/javascript/prototype-in-javascript/)** to our rescue!
