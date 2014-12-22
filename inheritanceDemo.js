@@ -3,28 +3,26 @@
  */
 
 function LivingThing() {
-    this.move = function() {
-        console.log("I am living thing! I can move!!");
-    };
 }
+LivingThing.prototype.move = function () {
+    console.log("I am living thing! I can move!!");
+};
 
 function Bird() {
-    this.fly = function() {
-        console.log("I am bird! I can fly!!");
-    };
 }
+Bird.prototype = Object.create(LivingThing.prototype);
+Bird.prototype.constructor = Bird;
+Bird.prototype.fly = function () {
+    console.log("I am bird! I can fly!!");
+};
 
 function Peacock() {
-    this.dance = function() {
-      console.log("I am Peacock! I can dance");
-    };
 }
-
-Bird.prototype = new LivingThing();
-Bird.prototype.constructor = Bird;
-
-Peacock.prototype = new Bird();
+Peacock.prototype = Object.create(Bird.prototype);
 Peacock.prototype.constructor = Peacock;
+Peacock.prototype.dance = function () {
+    console.log("I am Peacock! I can dance");
+};
 
 var peacock = new Peacock("A");
 peacock.dance(); // I am Peacock! I can dance
