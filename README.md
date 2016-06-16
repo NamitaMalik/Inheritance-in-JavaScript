@@ -85,4 +85,14 @@ You can see, we can call the parent methods/function on child object/peacock. Le
 
 We called ```dance()``` on Peacock **object**, since ```dance()``` belonged to Peacock, so it could be easily accessed. ```fly()``` belonged to Bird, but it could still be called on Peacock reason being that ```fly()``` was first searched in Peacock, on not finding ```fly()``` in Peacock, **prototype** was looked into to access the next **object** in the chain, which is Bird and hence we were able to call ```fly()```. Similar thing happened when ```move()``` was called, first Peacock object was searched, then hunt moved to the  **prototype** of Peacock in order to know the next object in the chain. Bird object was then looked into and on not finding ```move()``` there, reference of next **object** in **prototype** of Bird was looked which led the search to LivingThing **object**, which actually had the ```move()```. This is how we made a hierarchy starting from LivingThing to Peacock!
 
-We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **[prototype](http://codechutney.in/blog/javascript/prototype-in-javascript/)** to our rescue!
+We are a little unfortunate that we don't have the **extend** keyword in **JavaScript** as available in **Java**, but we aren't that **unlucky** as we have **[prototype](http://namitamalik.github.io/Prototype-in-JavaScript/)** to our rescue!
+
+Follow Me
+---
+[Github](https://github.com/NamitaMalik)
+
+[Twitter](https://twitter.com/namita13_04)
+
+[LinkedIn](https://in.linkedin.com/in/namita-malik-a7885b23)
+
+[More Blogs By Me](https://namitamalik.github.io/)
