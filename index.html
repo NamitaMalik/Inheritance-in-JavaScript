@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inheritance in Javascript by NamitaMalik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Inheritance in Javascript</h1>
+      <h2 class="project-tagline">This blog discusses Inheritance in Javascript.</h2>
+      <a href="https://github.com/NamitaMalik/Inheritance-in-JavaScript" class="btn">View on GitHub</a>
+      <a href="https://github.com/NamitaMalik/Inheritance-in-JavaScript/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/NamitaMalik/Inheritance-in-JavaScript/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="inheritance-in-javascript" class="anchor" href="#inheritance-in-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inheritance in JavaScript</h1>
+
+<p><strong>Inheritance</strong> is a very important <strong>OOPS</strong> concept, by virtue of which children <strong>classes</strong> <strong>inherit</strong> from their parent <strong>classes</strong>. But now, question is how to implement <strong>inheritance</strong> in <strong>JavaScript</strong>?</p>
+
+<p>We all know how to make <strong>class</strong> in <strong>JavaScript</strong>? <strong>Class</strong> in <strong>JavaScript</strong> is nothing but a <strong><a href="http://codechutney.in/blog/javascript/constructor-pattern/">constructor function</a></strong>. Here is a sample class:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Peacock</span>() {
+    <span class="pl-v">this</span>.<span class="pl-en">dance</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>I am Peacock! I can dance<span class="pl-pds">"</span></span>);
+    };
+}</pre></div>
+
+<p>In <strong>JavaScript</strong>, we do not have any <strong>extend</strong> keyword, the only way to implement <strong>inheritance</strong> is through <strong>prototype chaining</strong>.</p>
+
+<p>So, what is <strong>prototype chaining</strong>?</p>
+
+<p>Each object in <strong>JavaScript</strong> has internal link to another object, through a property known as <strong><a href="http://codechutney.in/blog/javascript/prototype-in-javascript/">Prototype</a></strong>. While moving through the chain of these <strong>objects</strong>, one would encounter 'null' in the <strong>prototype</strong> which would mean that Object <strong>prototype</strong> has reached.</p>
+
+<p>When a property requested in one object is not found in that <strong>object</strong>, then <strong>prototype</strong> of that <strong>object</strong> is looked into. <strong>Prototype</strong> contains the reference to the next <strong>object</strong> in the chain. <strong>Prototype chaining</strong> is used to look into the next <strong>object</strong> in the chain and so on.....until the end of chain is reached. This behavior of <strong>Prototype Chaining</strong> helps us to add <strong>inheritance</strong> in <strong>JavaScript</strong>.</p>
+
+<p>Let's experience some inheritance using the given sample classes:</p>
+
+<p><strong>LivingThing Class</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">LivingThing</span>() {
+    <span class="pl-v">this</span>.<span class="pl-en">move</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>I am living thing! I can move!!<span class="pl-pds">"</span></span>);
+    };
+}</pre></div>
+
+<p><strong>Bird Class</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Bird</span>() {
+    <span class="pl-v">this</span>.<span class="pl-en">fly</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>I am bird! I can fly!!<span class="pl-pds">"</span></span>);
+    };
+}</pre></div>
+
+<p><strong>Peacock Class</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Peacock</span>() {
+    <span class="pl-v">this</span>.<span class="pl-en">dance</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>I am Peacock! I can dance<span class="pl-pds">"</span></span>);
+    };
+}</pre></div>
+
+<p>Now, we know that Peacock is a bird and bird is a living thing. So all we need to show here is their relationship i.e. we need to implement the <strong>inheritance</strong>. Here we go:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">Bird</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">LivingThing</span>();
+<span class="pl-smi">Bird</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">=</span> Bird;</pre></div>
+
+<p>In the above two lines of code we have passed the instance of LivingThing to the <strong>prototype</strong> of Bird, therefore we have linked Bird to LivingThing. Second line though does not makes any difference to the <strong>inheritance</strong> but it is in important in the sense that it makes the constructor property of <strong>prototype</strong> refer to the correct class/function.</p>
+
+<p>Now, let's link Peacock to the Bird class. This can be done in the following way:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">Peacock</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Bird</span>();
+<span class="pl-smi">Peacock</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">=</span> Peacock;</pre></div>
+
+<p>In the above snippet we have linked Peacock to Bird. This type of <strong>chaining</strong> can go on and on. The above set of snippets would lead us to hierarchy given below:</p>
+
+<blockquote>
+<p>LivingThing --&gt; Bird --&gt; Peacock</p>
+</blockquote>
+
+<p>Lets try to create an object of Peacock <strong>class</strong>, and call dance, fly and move <strong>methods/functions</strong> on that object, and see what is happening??</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> peacock <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Peacock</span>();
+<span class="pl-smi">peacock</span>.<span class="pl-en">dance</span>(); <span class="pl-c">// I am Peacock! I can dance</span>
+<span class="pl-smi">peacock</span>.<span class="pl-en">fly</span>(); <span class="pl-c">// I am bird! I can fly!!</span>
+<span class="pl-smi">peacock</span>.<span class="pl-c1">move</span>(); <span class="pl-c">// I am living thing! I can move!!</span></pre></div>
+
+<p>You can see, we can call the parent methods/function on child object/peacock. Let's see the above snippet in more detail:</p>
+
+<p>We called <code>dance()</code> on Peacock <strong>object</strong>, since <code>dance()</code> belonged to Peacock, so it could be easily accessed. <code>fly()</code> belonged to Bird, but it could still be called on Peacock reason being that <code>fly()</code> was first searched in Peacock, on not finding <code>fly()</code> in Peacock, <strong>prototype</strong> was looked into to access the next <strong>object</strong> in the chain, which is Bird and hence we were able to call <code>fly()</code>. Similar thing happened when <code>move()</code> was called, first Peacock object was searched, then hunt moved to the  <strong>prototype</strong> of Peacock in order to know the next object in the chain. Bird object was then looked into and on not finding <code>move()</code> there, reference of next <strong>object</strong> in <strong>prototype</strong> of Bird was looked which led the search to LivingThing <strong>object</strong>, which actually had the <code>move()</code>. This is how we made a hierarchy starting from LivingThing to Peacock!</p>
+
+<p>We are a little unfortunate that we don't have the <strong>extend</strong> keyword in <strong>JavaScript</strong> as available in <strong>Java</strong>, but we aren't that <strong>unlucky</strong> as we have <strong><a href="http://namitamalik.github.io/Prototype-in-JavaScript/">prototype</a></strong> to our rescue!</p>
+
+<h2>
+<a id="follow-me" class="anchor" href="#follow-me" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Follow Me</h2>
+
+<p><a href="https://github.com/NamitaMalik">Github</a></p>
+
+<p><a href="https://twitter.com/namita13_04">Twitter</a></p>
+
+<p><a href="https://in.linkedin.com/in/namita-malik-a7885b23">LinkedIn</a></p>
+
+<p><a href="https://namitamalik.github.io/">More Blogs By Me</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/NamitaMalik/Inheritance-in-JavaScript">Inheritance in Javascript</a> is maintained by <a href="https://github.com/NamitaMalik">NamitaMalik</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
