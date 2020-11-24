@@ -1,0 +1,8 @@
+title: Inheritance in Javascript
+description: This blog discusses Inheritance in Javascript.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-hacker
+
+gems:
+  - jekyll-mentions
